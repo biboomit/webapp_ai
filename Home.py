@@ -10,8 +10,8 @@ import os
 from pandas_gbq import to_gbq
 import google.auth
 import pandas as pd
-from pandasai import PandasAI
-from pandasai.llm.openai import OpenAI
+#from pandasai import PandasAI
+#from pandasai.llm.openai import OpenAI
 
 
 st.title("Boomit-One Prompt Analytics")
