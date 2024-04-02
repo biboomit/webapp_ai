@@ -15,9 +15,10 @@ from pandasai.llm.openai import OpenAI
 
 
 st.title("Boomit-One Prompt Analytics")
-uploaded_file = uploaded_file = functions.get_data()
+#uploaded_file = functions.get_data() si quiero pegarle a la base
+uploaded_file = st.file_uploader("Upload a CSV file for analysis", type=['csv'])
 if uploaded_file is not None:
-    df = uploaded_file
+    df = pd.read_csv(uploaded_file)
     st.write(df.head(5))
     prompt = st.text_area("Enter your prompt:")
 
@@ -25,7 +26,7 @@ if uploaded_file is not None:
     if st.button("Generate"):
         if prompt:
             # call pandas_ai.run(), passing dataframe and prompt
-            with st.spinner("Generating response..."):
-                st.write(pandas_ai.run(df, prompt))
+            #with st.spinner("Generating response..."):
+            st.write(pandas_ai.run(df, prompt))
         else:
             st.warning("Please enter a prompt.")
